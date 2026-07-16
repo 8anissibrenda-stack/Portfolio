@@ -1,0 +1,56 @@
+/*FADE IN ANIMATION*/
+@keyframes fadeIn {
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/*HERO ANIMATION*/
+.hero-content{
+    animation:fadeIn 1.2s ease forwards;
+}
+
+/*BUTTON HOVER*/
+.hero-btn{
+    transition:0.4s ease;
+}
+.hero-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 25px rgba(212,175,55,.35);
+}
+
+/*NAVBAR LINKS*/
+nav a{
+    position:relative;
+}
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:var(--accent);
+    transition:0.35s;
+}
+nav a:hover::after{
+    width:100%;
+}
+
+/*IMAGE HOVER*/
+img{
+    transition:0.4s ease;
+}
+img:hover{
+    transform:scale(1.02);
+}
+
+/*SECTION TITLES*/
+section h2{
+    animation:fadeIn 1s ease;
+}

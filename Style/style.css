@@ -1,0 +1,163 @@
+/*GOOGLE FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Sacramento&display=swap');
+
+/*RESET*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/*ROOT COLORS*/
+:root{
+    --bg:#0B0B0B;
+    --surface:#111111;
+    --card:#181818;
+    --text:#F5F5F5;
+    --text-light:#B8B8B8;
+    --accent:#D4AF37;
+}
+
+/*BODY */
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+/*SMOOTH SCROLL*/
+html{
+    scroll-behavior:smooth;
+}
+
+/*LINKS*/
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/*LISTS*/
+ul{
+    list-style:none;
+}
+
+/*IMAGES*/
+img{
+    max-width:100%;
+    display:block;
+}
+
+/*HEADER*/
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:25px 8%;
+    background:rgba(11,11,11,.75);
+    backdrop-filter:blur(15px);
+    z-index:1000;
+}
+
+/*NAVBAR*/
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* LOGO*/
+.logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+/*MENU*/
+nav ul{
+    display:flex;
+    gap:40px;
+}
+
+/* MENU LINKS*/
+nav a{
+    font-size:15px;
+    transition:.35s;
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+/*HERO*/
+#home{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 12%;
+}
+
+/* HERO CONTENT*/
+.hero-content{
+    max-width:900px;
+}
+
+/*NAME*/
+.hero-content h1{
+    font-size:82px;
+    font-family:'Space Grotesk',sans-serif;
+    margin-bottom:20px;
+}
+
+/*TITLE*/
+.hero-content h3{
+    font-size:28px;
+    color:var(--accent);
+    font-weight:500;
+    margin-bottom:25px;
+}
+
+/*DESCRIPTION*/
+.hero-content p{
+    color:var(--text-light);
+    font-size:19px;
+    line-height:1.8;
+    margin-bottom:45px;
+}
+
+/*BUTTON*/
+.hero-btn{
+    display:inline-block;
+    padding:15px 36px;
+    border:1px solid var(--accent);
+    border-radius:40px;
+    transition:.4s;
+}
+
+.hero-btn:hover{
+    background:var(--accent);
+    color:black;
+}
+
+/*SECTION*/
+section{
+    padding:120px 10%;
+}
+
+section h2{
+    font-size:42px;
+    margin-bottom:40px;
+    font-family:'Space Grotesk',sans-serif;
+}
+
+/*FOOTER*/
+footer{
+    padding:40px;
+    text-align:center;
+    color:var(--text-light);
+    border-top:1px solid #222;
+}
