@@ -1,104 +1,98 @@
 /*FADE IN ANIMATION*/
 @keyframes fadeIn {
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*HERO ANIMATION*/
-.hero-content{
-    animation:fadeIn 1.2s ease forwards;
+.hero-content {
+  animation: fadeIn 1.2s ease forwards;
 }
 
 /*BUTTON HOVER*/
-.hero-btn{
-    transition:0.4s ease;
+.hero-btn {
+  transition: 0.4s ease;
 }
-.hero-btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 0 25px rgba(212,175,55,.35);
+
+.hero-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(212, 175, 55, .35);
 }
 
 /*NAVBAR LINKS*/
-nav a{
-    position:relative;
+nav a {
+  position: relative;
 }
-nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-6px;
-    width:0;
-    height:2px;
-    background:var(--accent);
-    transition:0.35s;
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: 0.35s;
 }
-nav a:hover::after{
-    width:100%;
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /*IMAGE HOVER*/
-img{
-    transition:0.4s ease;
+img {
+  transition: 0.4s ease;
 }
-img:hover{
-    transform:scale(1.02);
+
+img:hover {
+  transform: scale(1.02);
 }
 
 /*SECTION TITLES*/
-section h2{
-    animation:fadeIn 1s ease;
+section h2 {
+  animation: fadeIn 1s ease;
 }
 
 /*SKILL BOX HOVER*/
-
-.skill-box:hover{
-    transform:translateY(-8px);
-    box-shadow:0 10px 30px rgba(212,175,55,0.15);
+.skill-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
 }
 
 /*TIMELINE SCROLL ANIMATION*/
-.timeline-item{
-    opacity:0;
-    transform:translateY(60px);
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
+.timeline-item {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity .8s ease, transform .8s ease;
 }
 
-.timeline-item.show{
-    opacity:1;
-    transform:translateY(0);
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*TIMELINE CARD*/
-.timeline-content{
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+.timeline-content {
+  transition: transform .35s ease, box-shadow .35s ease;
 }
 
-.timeline-content:hover{
-    transform:translateX(10px);
-    box-shadow:
-        0 15px 35px rgba(212,175,55,.18);
+.timeline-content:hover {
+  transform: translateX(10px);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, .18);
 }
 
 /*TIMELINE DOT*/
-.timeline-dot{
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+.timeline-dot {
+  transition: transform .35s ease, box-shadow .35s ease;
 }
 
-.timeline-item:hover .timeline-dot{
-    transform:scale(1.25);
-    box-shadow:
-        0 0 12px var(--accent),
-        0 0 25px var(--accent);
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 12px var(--accent), 0 0 25px var(--accent);
 }
