@@ -1,5 +1,5 @@
 /*GOOGLE FONTS*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Sacramento&family=Dancing+Script:wght@700;900&display=swap');
 
 /*RESET*/
 *{
@@ -75,9 +75,11 @@ nav{
     justify-content:left;
 }
 .brand-name{
-font-family:'Great Vibes',cursive;
-font-size:40px;
-font-weight:bold;
+    font-family:'Dancing Script', cursive;
+    font-size:48px;
+    font-weight:900;
+    letter-spacing:1.2px;
+    line-height:1;
 }
 
 /* LOGO*/
