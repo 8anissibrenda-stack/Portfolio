@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marianissi Brenda | Portfolio</title>
@@ -11,7 +13,9 @@
 </head>
 
 <body>
-  <!-- ================= NAVBAR ================= -->
+    <div id="progress-bar"></div>  
+    <div id="mouse-glow"></div>
+    <!-- ================= NAVBAR ================= -->
   <header>
     <div class="brand">
       <img src="assets/icons/logo.png" alt="Logo" class="logo">
@@ -29,8 +33,23 @@
 
   <!-- ================= HERO ================= -->
   <section id="home">
+    <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="floating-shape shape1"></div>
+<div class="floating-shape shape2"></div>
+<div class="floating-shape shape3"></div>
     <div class="hero-content">
-      <p class="hero-tag">Software Developer in Progress</p>
+      <p class="hero-tag">
+<span id="typing"></span>
+</p>
       <h1>
         Simplicity.<br>
         Creativity.<br>
@@ -71,19 +90,19 @@
       <div class="skill-box">
         <h3>Languages</h3>
         <ul>
-          <li>Python</li>
-          <li>Java</li>
-          <li>HTML</li>
-          <li>CSS</li>
+            <li>🐍 Python</li>
+            <li>☕ Java</li>
+            <li>🌐 HTML5</li>
+            <li>🎨 CSS3</li>
         </ul>
       </div>
 
       <div class="skill-box">
         <h3>Tools</h3>
         <ul>
-          <li>Git</li>
-          <li>GitHub</li>
-          <li>VS Code</li>
+            <li>💻 VS Code</li>
+            <li>🌿 Git</li>
+            <li>🐙 GitHub</li>
         </ul>
       </div>
     </div>
@@ -91,18 +110,31 @@
 
   <!-- ================= PROJECTS ================= -->
   <section id="projects">
-    <h2>Things I've Built</h2>
-    <article>
+  <h2>Things I've Built</h2>
+  <article class="project-card">
+    <div class="project-header">
       <h3>NovaCalc</h3>
-      <p>
-        A responsive calculator developed to explore modern web design,
-        keyboard accessibility, and intuitive user interactions while
-        strengthening my front-end development skills.
-      </p>
+      <div class="tech-stack">
+        <span>JavaScript</span>
+        <span>HTML</span>
+        <span>CSS</span>
+      </div>
+    </div>
+    <p>
+      A responsive calculator developed to explore modern web design,
+      keyboard accessibility, and intuitive user interactions while
+      strengthening my front-end development skills.
+    </p>
+    <div class="project-buttons">
       <p style="color:powderblue">Check out:</p>
-      <a href="https://github.com/8anissibrenda-stack/Calculator" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </article>
-  </section>
+        <a href="https://github.com/8anissibrenda-stack/Calculator"
+         target="_blank"
+         rel="noopener noreferrer">
+        GitHub
+      </a>
+    </div>
+  </article>
+</section>
 
   <!-- ================= JOURNEY ================= -->
   <section id="journey">
@@ -175,11 +207,47 @@
   <!-- ================= CONTACT ================= -->
   <section id="contact">
     <h2>Let's Connect</h2>
-    <p>Email : 8anissi.brenda@email.com</p>
-    <p>GitHub : github.com/8anissibrenda-stack</p>
-    <p>LinkedIn : linkedin.com/in/your-profile</p>
-  </section>
+    <p class="contact-subtitle">
+        I'm always excited to connect, collaborate, or simply have a conversation about technology.
+    </p>
+    <div class="contact-container">
+        
+        <!-- Email -->
+        <a href="mailto:8anissi.brenda@email.com" class="contact-card">
+            <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>8anissi.brenda@email.com</p>
+        </a>
 
+        <!-- GitHub -->
+        <a href="https://github.com/8anissibrenda-stack"
+           target="_blank"
+           class="contact-card">
+            <div class="contact-icon">
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <h3>GitHub</h3>
+            <p>github.com/8anissibrenda-stack</p>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/marianissi-brenda-64b97a402/"
+           target="_blank"
+           class="contact-card">
+            <div class="contact-icon">
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <h3>LinkedIn</h3>
+            <p>linkedin.com/in/marianissi-brenda-64b97a402/</p>
+        </a>
+    </div>
+
+</section>
+  <button id="backToTop">
+    ↑
+</button>
   <!-- ================= FOOTER ================= -->
   <footer>
     <p>© 2026 Marianissi Brenda.</p>
