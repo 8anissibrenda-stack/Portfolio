@@ -19,7 +19,15 @@
 }
 
 /*BODY*/
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
@@ -50,6 +58,7 @@ ul {
 /*IMAGES*/
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
