@@ -102,3 +102,37 @@ heroBtn.addEventListener("mousemove", (e) => {
 heroBtn.addEventListener("mouseleave", () => {
   heroBtn.style.transform = "translate(0,0)";
 });
+
+// Lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = lightbox?.querySelector(".lightbox-image");
+const closeBtn = lightbox?.querySelector(".lightbox-close");
+const triggers = document.querySelectorAll(".lightbox-trigger");
+
+const closeLightbox = () => {
+  if (!lightbox) return;
+  lightbox.classList.remove("active");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
+};
+
+triggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = trigger.dataset.src || "";
+    lightboxImg.alt = trigger.dataset.alt || "";
+    lightbox.classList.add("active");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+  });
+});
+
+closeBtn?.addEventListener("click", closeLightbox);
+
+lightbox?.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLightbox();
+});
