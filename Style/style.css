@@ -38,6 +38,8 @@ body {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 200px;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 /*LINKS*/
@@ -452,6 +454,25 @@ footer {
 .project-buttons a:hover {
   background:var(--accent);
   color:black;
+}
+
+/*RESUME BUTTON*/
+.resume-btn {
+  display:inline-block;
+  padding:14px 32px;
+  background:var(--accent);
+  color:black;
+  border-radius:40px;
+  font-weight:600;
+  transition:.3s;
+  border:2px solid var(--accent);
+}
+
+.resume-btn:hover {
+  background:transparent;
+  color:var(--accent);
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(212,175,55,.2);
 }
 
 /*SECTION FADE*/
