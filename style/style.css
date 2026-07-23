@@ -19,27 +19,26 @@
 }
 
 /*BODY*/
-html, body {
+html {
   width: 100%;
   max-width: 100%;
+  height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 200px;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100vh;
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-}
-
-/*SMOOTH SCROLL*/
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 200px;
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
 }
 
 /*LINKS*/
