@@ -1,14 +1,17 @@
 /*LAPTOP*/
 @media (max-width: 1200px) {
   .hero-content h1 {
-    font-size: 70px;
+    font-size: 46px;
+  }
+  section {
+    padding: 80px 8%;
   }
 }
 
 /*TABLET*/
 @media (max-width: 992px) {
   header {
-    padding: 20px 6%;
+    padding: 10px 5%;
   }
 
   nav {
@@ -16,107 +19,136 @@
   }
 
   .hero-content h1 {
-    font-size: 56px;
+    font-size: 42px;
   }
 
   .hero-content h3 {
     font-size: 22px;
   }
+
+  section {
+    padding: 75px 7%;
+  }
 }
 
 /*MOBILE*/
 @media (max-width: 768px) {
-  nav {
-    position: fixed;
-    bottom: calc(12px + env(safe-area-inset-bottom, 12px));
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 24px);
-    max-width: 980px;
-    padding: 10px 10px calc(12px + env(safe-area-inset-bottom, 12px));
+  header,
+  header.scrolled,
+  .header-container {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    filter: none !important;
+    perspective: none !important;
+    contain: none !important;
+    will-change: auto !important;
+    background: rgba(11, 11, 11, 0.96) !important;
+    padding: 8px 4% !important;
+    overflow: visible !important;
+  }
+
+  .header-container {
+    justify-content: center;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 8px;
-    background: rgba(10, 12, 18, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 999px;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
-    z-index: 1200;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  }
+
+  .brand {
+    gap: 12px;
+  }
+
+  .brand-name {
+    font-size: 26px;
+  }
+
+  .logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* MOBILE FLOATING BOTTOM DOCK NAVBAR */
+  nav {
+    position: fixed !important;
+    left: 50% !important;
+    bottom: 16px !important;
+    top: auto !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 24px) !important;
+    max-width: 460px !important;
+    background: rgba(18, 18, 18, 0.94) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    border-radius: 28px !important;
+    padding: 6px 8px !important;
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 4px !important;
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    z-index: 99999 !important;
   }
 
   nav::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+    display: none;
   }
 
   nav a {
     flex: 1 1 0;
-    min-width: 42px;
-    min-height: 52px;
+    min-width: 0;
+    min-height: 46px;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
-    border-radius: 18px;
-    color: transparent;
-    font-size: 0;
-    line-height: 0;
+    padding: 4px 2px;
+    border-radius: 20px;
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
     position: relative;
-    transition:
-      transform 0.25s ease,
-      background 0.25s ease,
-      box-shadow 0.25s ease,
-      color 0.25s ease;
+    transition: all 0.25s ease;
+    text-align: center;
   }
 
   nav a::before {
     content: "";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    font-size: 1.35rem;
-    color: var(--text);
+    font-size: 1.15rem;
+    color: var(--text-muted);
     display: block;
     line-height: 1;
-  }
-
-  nav a::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: -18px;
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-    opacity: 0;
-    white-space: nowrap;
-    font-size: 11px;
-    color: var(--text-light);
+    margin-bottom: 2px;
     transition:
-      opacity 0.25s ease,
       transform 0.25s ease,
       color 0.25s ease;
-    pointer-events: none;
+  }
+
+  /* Disable ::after pseudo-element to prevent double text rendering */
+  nav a::after {
+    display: none !important;
+    content: none !important;
   }
 
   nav a:hover,
   nav a:focus-visible {
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
   }
 
-  nav a.active::before {
-    transform: scale(1.08);
+  nav a.active {
+    background: rgba(212, 175, 55, 0.16);
     color: var(--accent);
   }
 
-  nav a.active::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+  nav a.active::before {
+    transform: scale(1.1);
     color: var(--accent);
   }
 
@@ -142,30 +174,19 @@
     content: "\f0e0";
   }
 
-  nav a[href="#home"]::after {
-    content: "Home";
+  #home {
+    min-height: calc(100vh - 60px);
+    padding: 85px 6% 30px;
+    scroll-margin-top: 65px;
   }
-  nav a[href="#about"]::after {
-    content: "About";
-  }
-  nav a[href="#skills"]::after {
-    content: "Skills";
-  }
-  nav a[href="#projects"]::after {
-    content: "Projects";
-  }
-  nav a[href="#journey"]::after {
-    content: "Journey";
-  }
-  nav a[href="#resume"]::after {
-    content: "Resume";
-  }
-  nav a[href="#contact"]::after {
-    content: "Contact";
+
+  section {
+    padding: 65px 6%;
+    scroll-margin-top: 65px;
   }
 
   .hero-content h1 {
-    font-size: 42px;
+    font-size: 38px;
   }
 
   .hero-content h3 {
@@ -176,12 +197,9 @@
     font-size: 16px;
   }
 
-  section {
-    padding: 100px 8%;
-  }
-
   .timeline {
     padding-left: 25px;
+    margin: 30px auto;
   }
 
   .timeline-dot {
@@ -201,19 +219,34 @@
   #backToTop {
     width: 48px;
     height: 48px;
-    bottom: calc(92px + env(safe-area-inset-bottom, 12px));
-    right: 25px;
+    bottom: calc(85px + env(safe-area-inset-bottom, 12px));
+    right: 20px;
   }
 
   body {
-    padding-bottom: calc(112px + env(safe-area-inset-bottom, 12px));
+    padding-bottom: calc(90px + env(safe-area-inset-bottom, 12px));
   }
 }
 
 /*SMALL MOBILE*/
 @media (max-width: 480px) {
+  nav {
+    width: calc(100% - 16px) !important;
+    padding: 4px 4px !important;
+    bottom: 12px !important;
+  }
+
+  nav a {
+    padding: 4px 1px;
+  }
+
+  nav a::before {
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+  }
+
   .hero-content h1 {
-    font-size: 34px;
+    font-size: 32px;
   }
 
   .hero-content h3 {
@@ -226,7 +259,7 @@
   }
 
   section h2 {
-    font-size: 32px;
+    font-size: 30px;
   }
 }
 

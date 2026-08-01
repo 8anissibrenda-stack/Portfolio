@@ -47,7 +47,7 @@ const onScroll = () => {
 
   let current = "";
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 180;
+    const sectionTop = section.offsetTop - 100;
     if (scrollY >= sectionTop) current = section.getAttribute("id");
   });
 

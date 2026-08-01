@@ -74,7 +74,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 2px 4%;
+  padding: 12px 4%;
   background: rgba(11, 11, 11, 0.74);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(14px);
@@ -104,13 +104,13 @@ nav {
 .brand {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
   justify-content: left;
 }
 
 .brand-name {
   font-family: "Dancing Script", cursive;
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 900;
   letter-spacing: 1px;
   line-height: 1;
@@ -118,8 +118,8 @@ nav {
 
 /*LOGO*/
 .logo {
-  width: 120px;
-  height: 120px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   border-radius: 50%;
   transition: 0.5s;
@@ -142,13 +142,13 @@ nav a:hover {
 
 /*HERO*/
 #home {
-  min-height: 135vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 110px 12% 50px;
-  scroll-margin-top: 140px;
+  padding: 100px 12% 40px;
+  scroll-margin-top: 80px;
   position: relative;
   overflow: hidden;
   background:
@@ -265,8 +265,8 @@ nav a:hover {
 
 /*SECTION*/
 section {
-  padding: 160px 10%;
-  scroll-margin-top: 100px;
+  padding: 90px 10%;
+  scroll-margin-top: 80px;
 }
 
 section h2 {
@@ -292,11 +292,11 @@ section p {
 
 /*FOOTER*/
 footer {
-  padding: 70px 20px;
+  padding: 50px 20px;
   text-align: center;
   color: var(--text-light);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 120px;
+  margin-top: 70px;
   background: rgba(255, 255, 255, 0.01);
 }
 
@@ -386,7 +386,7 @@ footer {
 .timeline {
   position: relative;
   max-width: 840px;
-  margin: 70px auto;
+  margin: 45px auto;
   padding-left: 42px;
 }
 
@@ -407,7 +407,7 @@ footer {
 
 .timeline-item {
   position: relative;
-  margin-bottom: 70px;
+  margin-bottom: 45px;
 }
 
 .timeline-dot {
