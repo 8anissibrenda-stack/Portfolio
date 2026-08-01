@@ -1,20 +1,26 @@
 //Timeline Animation
 const timelineItems = document.querySelectorAll(".timeline-item");
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
-  });
-}, { threshold: 0.25 });
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+  },
+  { threshold: 0.25 },
+);
 
 timelineItems.forEach((item) => observer.observe(item));
 
 // Section Fade
 const sections = document.querySelectorAll("section");
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
-  });
-}, { threshold: 0.15 });
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+  },
+  { threshold: 0.15 },
+);
 
 sections.forEach((section) => {
   section.classList.add("hidden");
@@ -30,7 +36,8 @@ let isTicking = false;
 
 const onScroll = () => {
   const scrollY = window.scrollY || window.pageYOffset;
-  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const totalHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
   const progressHeight = totalHeight ? (scrollY / totalHeight) * 100 : 0;
   progress.style.width = progressHeight + "%";
 
@@ -44,7 +51,10 @@ const onScroll = () => {
   });
 
   navLinks.forEach((link) => {
-    link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === "#" + current,
+    );
   });
   isTicking = false;
 };
@@ -62,7 +72,13 @@ topBtn.onclick = () => {
 
 // Mouse Glow
 const glow = document.getElementById("mouse-glow");
-const glowState = { x: window.innerWidth / 2, y: window.innerHeight / 2, targetX: window.innerWidth / 2, targetY: window.innerHeight / 2, ticking: false };
+const glowState = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2,
+  targetX: window.innerWidth / 2,
+  targetY: window.innerHeight / 2,
+  ticking: false,
+};
 
 document.addEventListener("mousemove", (e) => {
   glowState.targetX = e.clientX;
@@ -84,7 +100,7 @@ const words = [
   "Computer Science Student",
   "Learning Web Development",
   "Building Python Projects",
-  "Future Software Engineer"
+  "Future Software Engineer",
 ];
 
 let wordIndex = 0;
