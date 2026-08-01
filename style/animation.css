@@ -1,40 +1,40 @@
 /*FADE IN ANIMATION*/
 @keyframes fadeIn {
-  from { opacity:0; transform:translateY(30px); }
+  from { opacity:0; transform:translateY(26px); }
   to { opacity:1; transform:translateY(0); }
 }
 
-.hero-content { animation:fadeIn 1.2s ease forwards; }
+.hero-content { animation:fadeIn 1.2s cubic-bezier(.22,1,.36,1) forwards; }
 
 /*BUTTON HOVER*/
-.hero-btn { transition:0.4s ease; }
+.hero-btn { transition:.35s cubic-bezier(.22,1,.36,1); }
 .hero-btn:hover { transform:translateY(-4px); box-shadow:0 0 25px rgba(212,175,55,.35); }
 
 /*NAVBAR LINKS*/
 nav a { position:relative; }
-nav a::after { content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:var(--accent); transition:.35s; }
+nav a::after { content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:var(--accent); transition: width .35s cubic-bezier(.22,1,.36,1), opacity .35s ease; }
 nav a:hover::after { width:100%; }
 
 /*IMAGE HOVER*/
-img { transition:.4s ease; }
+img { transition: transform .35s ease, box-shadow .35s ease; }
 img:hover { transform:scale(1.02); }
 
 /*SECTION TITLES*/
-section h2 { animation:fadeIn 1s ease; }
+section h2 { animation:fadeIn 1s cubic-bezier(.22,1,.36,1); }
 
 /*SKILL BOX HOVER*/
 .skill-box:hover { transform:translateY(-8px); box-shadow:0 10px 30px rgba(212,175,55,.15); }
 
 /*TIMELINE SCROLL ANIMATION*/
-.timeline-item { opacity:0; transform:translateY(60px); transition:opacity .8s ease,transform .8s ease; }
+.timeline-item { opacity:0; transform:translateY(60px); transition:opacity .88s cubic-bezier(.22,1,.36,1), transform .88s cubic-bezier(.22,1,.36,1); }
 .timeline-item.show { opacity:1; transform:translateY(0); }
 
 /*TIMELINE CARD*/
-.timeline-content { transition:transform .35s ease,box-shadow .35s ease; }
+.timeline-content { transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease; }
 .timeline-content:hover { transform:translateX(10px); box-shadow:0 15px 35px rgba(212,175,55,.18); }
 
 /*TIMELINE DOT*/
-.timeline-dot { transition:transform .35s ease,box-shadow .35s ease; }
+.timeline-dot { transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease; }
 .timeline-item:hover .timeline-dot { transform:scale(1.25); box-shadow:0 0 12px var(--accent),0 0 25px var(--accent); }
 
 @keyframes floatShape {
@@ -49,9 +49,9 @@ section h2 { animation:fadeIn 1s ease; }
   100% { transform:translateY(-120px); opacity:0; }
 }
 
-.hero-content h1 { animation:slideUp 5s ease; }
-.hero-description { animation:slideUp 5.3s ease; }
-.hero-btn { animation:slideUp 5.6s ease; }
+.hero-content h1 { animation:slideUp 5s cubic-bezier(.22,1,.36,1); }
+.hero-description { animation:slideUp 5.3s cubic-bezier(.22,1,.36,1); }
+.hero-btn { animation:slideUp 5.6s cubic-bezier(.22,1,.36,1); }
 
 @keyframes slideUp {
   from { opacity:0; transform:translateY(40px); }
@@ -68,7 +68,19 @@ section h2::after {
   width:0;
   height:3px;
   background:var(--accent);
-  transition:.5s;
+  transition: width .45s cubic-bezier(.22,1,.36,1);
 }
 
 section:hover h2::after { width:100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}

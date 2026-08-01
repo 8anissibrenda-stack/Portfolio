@@ -23,40 +23,60 @@ sections.forEach((section) => {
 
 // Scroll Progress
 const progress = document.getElementById("progress-bar");
-window.addEventListener("scroll", () => {
-  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progressHeight = (window.pageYOffset / totalHeight) * 100;
-  progress.style.width = progressHeight + "%";
-});
-
-// Active Navbar
+const topBtn = document.getElementById("backToTop");
+const header = document.querySelector("header");
 const navLinks = document.querySelectorAll("nav a");
-window.addEventListener("scroll", () => {
+let isTicking = false;
+
+const onScroll = () => {
+  const scrollY = window.scrollY || window.pageYOffset;
+  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progressHeight = totalHeight ? (scrollY / totalHeight) * 100 : 0;
+  progress.style.width = progressHeight + "%";
+
+  topBtn.style.display = scrollY > 500 ? "block" : "none";
+  header?.classList.toggle("scrolled", scrollY > 20);
+
   let current = "";
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 160;
-    if (pageYOffset >= sectionTop) current = section.getAttribute("id");
+    const sectionTop = section.offsetTop - 180;
+    if (scrollY >= sectionTop) current = section.getAttribute("id");
   });
+
   navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) link.classList.add("active");
+    link.classList.toggle("active", link.getAttribute("href") === "#" + current);
   });
+  isTicking = false;
+};
+
+window.addEventListener("scroll", () => {
+  if (!isTicking) {
+    window.requestAnimationFrame(onScroll);
+    isTicking = true;
+  }
 });
 
-// Back To Top
-const topBtn = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  topBtn.style.display = window.scrollY > 500 ? "block" : "none";
-});
 topBtn.onclick = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-//Mouse Glow
+// Mouse Glow
 const glow = document.getElementById("mouse-glow");
+const glowState = { x: window.innerWidth / 2, y: window.innerHeight / 2, targetX: window.innerWidth / 2, targetY: window.innerHeight / 2, ticking: false };
+
 document.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
+  glowState.targetX = e.clientX;
+  glowState.targetY = e.clientY;
+  if (!glowState.ticking) {
+    window.requestAnimationFrame(() => {
+      glowState.x += (glowState.targetX - glowState.x) * 0.16;
+      glowState.y += (glowState.targetY - glowState.y) * 0.16;
+      glow.style.left = glowState.x + "px";
+      glow.style.top = glowState.y + "px";
+      glowState.ticking = false;
+    });
+    glowState.ticking = true;
+  }
 });
 
 // Typing Animation
