@@ -143,6 +143,7 @@ heroBtn.addEventListener("mouseleave", () => {
 // Lightbox
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = lightbox?.querySelector(".lightbox-image");
+const lightboxIframe = lightbox?.querySelector(".lightbox-iframe");
 const closeBtn = lightbox?.querySelector(".lightbox-close");
 const triggers = document.querySelectorAll(".lightbox-trigger");
 
@@ -151,13 +152,36 @@ const closeLightbox = () => {
   lightbox.classList.remove("active");
   lightbox.setAttribute("aria-hidden", "true");
   document.body.classList.remove("lightbox-open");
+
+  if (lightboxIframe) {
+    lightboxIframe.src = "";
+    lightboxIframe.style.display = "none";
+  }
+
+  if (lightboxImg) {
+    lightboxImg.style.display = "none";
+  }
 };
 
 triggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
-    if (!lightbox || !lightboxImg) return;
-    lightboxImg.src = trigger.dataset.src || "";
-    lightboxImg.alt = trigger.dataset.alt || "";
+    if (!lightbox) return;
+
+    const src = trigger.dataset.src || "";
+    const alt = trigger.dataset.alt || "";
+    const isPdf = src.toLowerCase().endsWith(".pdf");
+
+    if (lightboxImg) {
+      lightboxImg.style.display = isPdf ? "none" : "block";
+      lightboxImg.src = isPdf ? "" : src;
+      lightboxImg.alt = alt;
+    }
+
+    if (lightboxIframe) {
+      lightboxIframe.style.display = isPdf ? "block" : "none";
+      lightboxIframe.src = isPdf ? src : "";
+    }
+
     lightbox.classList.add("active");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("lightbox-open");

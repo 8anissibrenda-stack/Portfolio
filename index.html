@@ -250,15 +250,28 @@
     <section id="resume">
       <h2>Resume</h2>
 
-      <p>Download my latest resume below.</p>
+      <p>Check out my resume below:</p>
 
-      <a
-        href="resume/resume.pdf"
-        download="Marianissi_Brenda_Resume.pdf"
-        class="resume-btn"
-      >
-        <i class="fa-solid fa-download"></i> Download Resume
-      </a>
+      <div class="resume-actions">
+        <button
+          type="button"
+          class="project-preview-btn lightbox-trigger"
+          data-src="resume/resume.pdf"
+          data-alt="Resume preview"
+          aria-label="Open resume preview"
+        >
+          <i class="fa-solid fa-expand"></i>
+          <span>Preview</span>
+        </button>
+
+        <a
+          href="resume/resume.pdf"
+          download="Marianissi_Brenda_Resume.pdf"
+          class="resume-btn"
+        >
+          <i class="fa-solid fa-download"></i> Download Resume
+        </a>
+      </div>
     </section>
 
     <!-- ================= CONTACT ================= -->
@@ -313,6 +326,11 @@
     <!-- ================= LIGHTBOX ================= -->
     <div id="lightbox" class="lightbox" aria-hidden="true">
       <img src="" alt="" class="lightbox-image" />
+      <iframe
+        src=""
+        class="lightbox-iframe"
+        aria-label="Preview content"
+      ></iframe>
       <button class="lightbox-close" aria-label="Close lightbox">
         &times;
       </button>

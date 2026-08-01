@@ -541,8 +541,18 @@ footer {
 }
 
 /*RESUME BUTTON*/
+.resume-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
 .resume-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   padding: 14px 32px;
   background: var(--accent);
   color: black;
@@ -827,13 +837,29 @@ nav a.active::after {
   display: flex;
 }
 
-.lightbox-image {
+.lightbox-image,
+.lightbox-iframe {
   max-width: 100%;
   max-height: 90vh;
+  width: 100%;
+  height: auto;
   border-radius: 16px;
   border: 1px solid rgba(212, 175, 55, 0.4);
   object-fit: contain;
   box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+  display: none;
+}
+
+.lightbox-image {
+  display: block;
+}
+
+.lightbox-iframe {
+  display: none;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox-close {
@@ -844,20 +870,12 @@ nav a.active::after {
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: #000;
+  color: #fff;
   font-size: 28px;
   cursor: pointer;
   transition: 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-body.lightbox-open {
-  overflow: hidden;
 }
