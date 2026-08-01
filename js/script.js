@@ -32,6 +32,12 @@ const progress = document.getElementById("progress-bar");
 const topBtn = document.getElementById("backToTop");
 const header = document.querySelector("header");
 const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach((link) => {
+  const label = link.textContent.trim();
+  if (label) link.dataset.label = label;
+});
+
 let isTicking = false;
 
 const onScroll = () => {
