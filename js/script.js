@@ -170,6 +170,15 @@ triggers.forEach((trigger) => {
     const src = trigger.dataset.src || "";
     const alt = trigger.dataset.alt || "";
     const isPdf = src.toLowerCase().endsWith(".pdf");
+    const isMobile =
+      /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+
+    if (isPdf && isMobile) {
+      window.open(src, "_blank");
+      return;
+    }
 
     if (lightboxImg) {
       lightboxImg.style.display = isPdf ? "none" : "block";
