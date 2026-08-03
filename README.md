@@ -7,7 +7,7 @@ A modern, responsive, and interactive portfolio showcasing my projects, technica
 - 🎨 Modern luxury UI/UX
 - 🌙 Dark theme with glassmorphism
 - ✨ Smooth animations & micro-interactions
-- 📱 Fully responsive design 
+- 📱 Fully responsive design
 - ⌨️ Animated typing effect
 - 📈 Scroll progress indicator
 - 🖼️ Project preview lightbox
@@ -26,11 +26,12 @@ A modern, responsive, and interactive portfolio showcasing my projects, technica
 
 ## 🚀 Live Demo
 
-🔗 **Portfolio:** *marianissi-portfolio.vercel.app*
+🔗 **Portfolio:** _marianissi-portfolio.vercel.app_
 
 ## 💼 Featured Project
 
 ### 🧮 NovaCalc
+
 A responsive calculator built with HTML, CSS, and JavaScript. The portfolio includes a **live interactive demo**, allowing visitors to try the calculator directly without leaving the website.
 
 ## 📬 Connect With Me
