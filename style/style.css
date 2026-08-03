@@ -569,6 +569,111 @@ footer {
   box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
 }
 
+/* PROJECT ACTIONS (e.g., NovaCalc preview + GitHub) */
+.project-actions {
+  /* use grid to ensure perfect two-column alignment (captions top row, buttons second row) */
+  display: grid;
+  grid-template-columns: repeat(2, 240px);
+  grid-auto-rows: auto;
+  justify-content: center;
+  align-items: start; /* ensure captions share the same top baseline */
+  gap: 1.5rem;
+  margin-top: 18px;
+}
+
+.project-actions .project-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0 22px;
+  width: 220px; /* fixed width to match GitHub card */
+  height: 56px; /* fixed height to ensure equal card sizes */
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  border-radius: 40px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.project-actions .project-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0 22px;
+  width: 220px; /* fixed width to match Preview card */
+  height: 56px; /* fixed height to match Preview card */
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 40px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.project-actions .project-github:hover {
+  background: rgba(212, 175, 55, 0.08);
+  color: black;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.12);
+}
+
+/* action-item with caption above control */
+.project-actions .action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center button horizontally inside the grid column */
+  gap: 6px;
+  width: 240px; /* container width matches the grid column */
+  margin: 0; /* remove any extra margins */
+  padding: 0; /* remove any extra padding */
+}
+
+.project-actions .action-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ensure buttons are centered in their grid cell and have identical vertical alignment */
+.project-actions .project-preview-btn,
+.project-actions .project-github {
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: inline-flex;
+}
+
+/* keep buttons compact on small screens */
+@media (max-width: 560px) {
+  .project-actions {
+    gap: 0.875rem;
+    width: 100%;
+  }
+  .project-actions .action-item {
+    align-items: center;
+    width: 100%;
+  }
+  .project-actions .action-caption {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  /* when stacked on small screens, make buttons full-width */
+  .project-actions .project-preview-btn,
+  .project-actions .project-github {
+    width: 100%;
+    height: 56px;
+  }
+}
+
+/* ensure icons are same size inside the buttons */
+.project-actions i {
+  font-size: 1.05rem;
+}
+
 /*SECTION FADE*/
 .hidden {
   opacity: 0;
