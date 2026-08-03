@@ -7,10 +7,11 @@ A modern, responsive, and interactive portfolio showcasing my projects, technica
 - 🎨 Modern luxury UI/UX
 - 🌙 Dark theme with glassmorphism
 - ✨ Smooth animations & micro-interactions
-- 📱 Fully responsive design
+- 📱 Fully responsive design 
 - ⌨️ Animated typing effect
 - 📈 Scroll progress indicator
 - 🖼️ Project preview lightbox
+- 🧩 Optimized for Mobile, Tablet, and Desktop
 - 🎥 Live working demo for my Calculator project
 - 📄 Resume section
 - 📬 Contact section
