@@ -145,7 +145,10 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = lightbox?.querySelector(".lightbox-image");
 const lightboxIframe = lightbox?.querySelector(".lightbox-iframe");
 const closeBtn = lightbox?.querySelector(".lightbox-close");
+const openAnchor = lightbox?.querySelector("#lightbox-open");
 const triggers = document.querySelectorAll(".lightbox-trigger");
+let lastActiveTrigger = null;
+let trapHandler = null;
 
 const closeLightbox = () => {
   if (!lightbox) return;
@@ -161,6 +164,26 @@ const closeLightbox = () => {
   if (lightboxImg) {
     lightboxImg.style.display = "none";
   }
+
+  // hide open-in-new-tab action
+  if (openAnchor) {
+    openAnchor.setAttribute("aria-hidden", "true");
+    openAnchor.removeAttribute("href");
+  }
+
+  // remove focus trap
+  if (trapHandler) {
+    document.removeEventListener("keydown", trapHandler);
+    trapHandler = null;
+  }
+
+  // restore focus to triggering element
+  try {
+    if (lastActiveTrigger && typeof lastActiveTrigger.focus === "function") {
+      lastActiveTrigger.focus();
+    }
+  } catch (err) {}
+  lastActiveTrigger = null;
 };
 
 triggers.forEach((trigger) => {
@@ -170,30 +193,92 @@ triggers.forEach((trigger) => {
     const src = trigger.dataset.src || "";
     const alt = trigger.dataset.alt || "";
     const isPdf = src.toLowerCase().endsWith(".pdf");
+    const isHtml =
+      src.toLowerCase().endsWith(".html") || trigger.dataset.type === "demo";
     const isMobile =
       /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent,
       );
 
+    // Mobile PDF fallback: open in new tab to avoid download prompt
     if (isPdf && isMobile) {
       window.open(src, "_blank");
       return;
     }
 
+    // Handle image previews
     if (lightboxImg) {
-      lightboxImg.style.display = isPdf ? "none" : "block";
-      lightboxImg.src = isPdf ? "" : src;
+      lightboxImg.style.display = isPdf || isHtml ? "none" : "block";
+      lightboxImg.src = isPdf || isHtml ? "" : src;
       lightboxImg.alt = alt;
     }
 
+    // Handle iframe previews (PDFs as embed and HTML demos)
     if (lightboxIframe) {
-      lightboxIframe.style.display = isPdf ? "block" : "none";
-      lightboxIframe.src = isPdf ? src : "";
+      if (isPdf || isHtml) {
+        lightboxIframe.style.display = "block";
+        lightboxIframe.src = src;
+        // ensure iframe has sandbox/allow attributes for running demo JS safely
+        lightboxIframe.setAttribute(
+          "sandbox",
+          "allow-scripts allow-same-origin",
+        );
+        lightboxIframe.setAttribute(
+          "allow",
+          "geolocation; microphone; camera; midi; encrypted-media",
+        );
+      } else {
+        lightboxIframe.style.display = "none";
+        lightboxIframe.src = "";
+      }
     }
 
+    // show lightbox
     lightbox.classList.add("active");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("lightbox-open");
+
+    // show open-in-new-tab when iframe is used
+    if (openAnchor) {
+      if (isPdf || isHtml) {
+        openAnchor.setAttribute("href", src);
+        openAnchor.setAttribute("aria-hidden", "false");
+      } else {
+        openAnchor.setAttribute("aria-hidden", "true");
+        openAnchor.removeAttribute("href");
+      }
+    }
+
+    // accessibility: focus trap
+    lastActiveTrigger = trigger;
+    try {
+      closeBtn?.focus();
+    } catch (err) {}
+
+    trapHandler = function (e) {
+      if (e.key !== "Tab") return;
+      const focusable = lightbox.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+      );
+      const nodes = Array.prototype.slice
+        .call(focusable)
+        .filter((n) => n.offsetParent !== null);
+      if (!nodes.length) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", trapHandler);
   });
 });
 
