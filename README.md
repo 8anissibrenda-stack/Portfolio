@@ -22,30 +22,6 @@ A modern, responsive, and interactive portfolio showcasing my projects, technica
 - JavaScript
 - Font Awesome
 - Google Fonts
-# 🌌 Marianissi Brenda | Portfolio
-
-A modern, responsive, and interactive developer portfolio showcasing my projects, technical skills, academic journey, and passion for software development.
-
-## ✨ Features
-
-- 🎨 Modern luxury UI/UX
-- 🌙 Dark theme with glassmorphism
-- ✨ Smooth animations & micro-interactions
-- 📱 Fully responsive design
-- ⌨️ Animated typing effect
-- 📈 Scroll progress indicator
-- 🖼️ Project preview lightbox
-- 🎥 Live working demo for my Calculator project
-- 📄 Resume section
-- 📬 Contact section
-
-## 🛠️ Built With
-
-- HTML5
-- CSS3
-- JavaScript (ES6)
-- Font Awesome
-- Google Fonts
 
 ## 🚀 Live Demo
 
