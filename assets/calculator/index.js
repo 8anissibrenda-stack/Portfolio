@@ -18,6 +18,10 @@ function calculate() {
 }
 
 function deleteLast() {
+  if (display.value === "Error") {
+    display.value = "";
+    return;
+  }
   display.value = display.value.slice(0, -1);
 }
 

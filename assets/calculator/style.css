@@ -1,21 +1,20 @@
 body {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
 }
-
 #calculator {
   font-family: Arial, sans-serif;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.741);
   max-width: 350px;
-  width: 100%;
   overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+#display-row {
+  position: relative;
 }
 
 #display {
@@ -24,10 +23,31 @@ body {
   font-size: 30px;
   color: white;
   text-align: left;
-  padding: 20px;
+  padding: 20px 72px 20px 20px;
   border: none;
-  outline: none;
-  box-sizing: border-box;
+}
+
+.backspace-btn {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  background-color: rgba(0, 0, 0, 0.15);
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.backspace-btn:hover {
+  background-color: #ff3b30;
+  box-shadow: 0 0 12px rgba(255, 59, 48, 0.45);
+}
+.backspace-btn:active {
+  background-color: #8a8a8a;
+  box-shadow: none;
 }
 
 #keys {
@@ -36,9 +56,8 @@ body {
   gap: 15px;
   padding: 30px;
 }
-
 button {
-  width: 60px;
+  width: 100%;
   height: 60px;
   background-color: rgba(0, 0, 0, 0.463);
   font-size: 25px;
@@ -47,53 +66,37 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 10px;
-  transition:
-    background-color 0.2s ease,
-    transform 0.1s ease;
 }
-
 button:hover {
   background-color: rgba(0, 0, 0, 20%);
-  transform: scale(1.04);
 }
-
 button:active {
   background-color: rgba(0, 0, 0, 10%);
-  transform: scale(0.96);
 }
-
 .operator-btn {
   background-color: orange;
 }
-
 .operator-btn:hover {
   background-color: rgba(255, 166, 0, 0.424);
 }
-
 .operator-btn:active {
   background-color: rgba(255, 166, 0, 0.324);
 }
-
 .equals-btn {
   background-color: lch(73.49% 85.06 137.15);
 }
-
 .equals-btn:hover {
   background-color: rgba(0, 255, 0, 0.424);
 }
-
 .equals-btn:active {
   background-color: rgba(0, 255, 0, 0.324);
 }
-
 .clear-btn {
   background-color: red;
 }
-
 .clear-btn:hover {
   background-color: rgba(255, 0, 0, 0.424);
 }
-
 .clear-btn:active {
   background-color: rgba(255, 0, 0, 0.324);
 }

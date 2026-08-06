@@ -1,0 +1,115 @@
+/* Responsive layout overrides */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+/* Base adjustments so overrides apply cleanly */
+#calculator {
+  max-width: 95vw;
+  margin: 16px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#display {
+  width: 100%;
+  font-size: 1.8rem;
+  color: white;
+  text-align: left;
+  padding: 12px;
+  border: none;
+}
+
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 16px;
+}
+
+button {
+  width: 100%;
+  height: 56px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* Mobile: compact, centered card for neat appearance */
+@media (max-width: 420px) {
+  body {
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+  }
+  #calculator {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    border-radius: 12px;
+    display: block;
+  }
+  #display {
+    font-size: 2.2rem;
+    padding: 14px;
+  }
+  #keys {
+    padding: 14px;
+    gap: 10px;
+    grid-auto-rows: 56px;
+  }
+  button {
+    height: 56px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+  }
+}
+
+/* Tablet: slightly larger buttons, centered card */
+@media (min-width: 421px) and (max-width: 1024px) {
+  #calculator {
+    max-width: 420px;
+    margin: 28px auto;
+  }
+  #display {
+    font-size: 2.4rem;
+    padding: 16px;
+  }
+  #keys {
+    gap: 12px;
+    padding: 18px;
+    grid-auto-rows: 64px;
+  }
+  button {
+    height: 64px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Laptop / Desktop: make the calculator larger */
+@media (min-width: 1025px) {
+  /* Laptop/desktop: match first screenshot sizing */
+  #calculator {
+    /* Slightly smaller on laptops for better fit */
+    max-width: 320px;
+    margin: 36px auto;
+  }
+  #display {
+    font-size: 2.4rem;
+    padding: 18px 16px;
+  }
+  #keys {
+    gap: 12px;
+    padding: 18px;
+    grid-auto-rows: 60px;
+  }
+  button {
+    height: 60px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+  }
+}

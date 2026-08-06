@@ -1,13 +1,18 @@
 <!doctype html>
 <html>
   <head>
-    <title>Calculator</title>
+    <title>Calcultor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
   </head>
 
   <body>
     <div id="calculator">
-      <input id="display" readonly />
+      <div id="display-row">
+        <input id="display" readonly />
+        <button onclick="deleteLast()" class="backspace-btn">⌫</button>
+      </div>
       <div id="keys">
         <button onclick="appendToDisplay('%')" class="operator-btn">%</button>
         <button onclick="appendToDisplay('(')">(</button>
